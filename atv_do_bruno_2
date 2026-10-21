@@ -1,0 +1,48 @@
+public class atvbruno2 {
+    public static void main(String[] args) {
+        Scanner entrada = new Scanner(System.in);
+        entrada.useLocale(Locale.US); // permite digitar decimais com ponto (7.5)
+
+        System.out.print("Quantos alunos tem na turma? ");
+        int quantidade = entrada.nextInt();
+        System.out.println("Digite a nota do aluno:");
+        double[] nota1 = new double[quantidade];
+        System.out.println("Digite a segunda nota do aluno:");
+        double[] nota2 = new double[quantidade];
+        System.out.println("Digite a terceira nota do aluno:");
+        double[] nota3 = new double[quantidade];
+        System.out.println("Digite a quarta nota do aluno:");
+        double[] nota4 = new double[quantidade];
+        for(int i = 0; i < quantidade; i++) {
+            System.out.print("Aluno " + (i + 1) + " - Nota 1: ");
+            nota1[i] = entrada.nextDouble();
+            System.out.print("Aluno " + (i + 1) + " - Nota 2: ");
+            nota2[i] = entrada.nextDouble();
+            System.out.print("Aluno " + (i + 1) + " - Nota 3: ");
+            nota3[i] = entrada.nextDouble();
+            System.out.print("Aluno " + (i + 1) + " - Nota 4: ");
+            nota4[i] = entrada.nextDouble();
+        }
+        double soma = 0;
+        double maiorNota = 0;
+        int aprovados = 0;
+      
+
+        
+        System.out.println("\n===== RESULTADO DA TURMA =====");
+        for(int i = 0; i < quantidade; i++) {
+            double media = (nota1[i] + nota2[i] + nota3[i] + nota4[i]) / 4;
+            System.out.printf("Aluno %d - Média: %.2f\n", (i + 1), media);
+            soma += media;
+            if(media > maiorNota) {
+                maiorNota = media;
+            }
+            if(media >= 7) {
+                aprovados++;
+            }
+        }
+
+
+        entrada.close();
+    }
+}
